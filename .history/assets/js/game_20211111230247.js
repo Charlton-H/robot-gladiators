@@ -1,37 +1,8 @@
-function randomNumber(min, max) {
-  var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-  return value;
-}
-
 var playerInfo = {
   name: window.prompt("What is your robot's name?"),
   health: 100,
-  attack: randomNumber(10, 14),
+  attack: 10,
   money: 10,
-  reset: function () {
-    this.health = 100;
-    this.attack = 10;
-    this.money = 10;
-  },
-  refillHealth: function () {
-    if (this.money >= 7) {
-      window.alert("Refilling player's health by 20 for 7 dollars.");
-      this.health += 20;
-      this.money -= 7;
-    } else {
-      window.alert("You don't have enough money!");
-    }
-  },
-  upgradeAttack: function () {
-    if (this.money >= 7) {
-      window.alert("Upgrading player's attack by 6 for 7 dollars.");
-      this.attack += 6;
-      this.money -= 7;
-    } else {
-      window.alert("You don't have enough money!");
-    }
-  },
 };
 
 var enemyInfo = [
@@ -70,7 +41,7 @@ var fight = function (enemy) {
         "\n" +
         "Attack: " +
         enemy.attack +
-        "\n\r" +
+        "\n" +
         "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose"
     );
 
@@ -146,10 +117,9 @@ var fight = function (enemy) {
 
 var startGame = function () {
   // reset player stats
-  playerInfo.reset();
-  // playerInfo.health = 100;
-  // playerInfo.attack = randomNumber(8, 15);
-  // playerInfo.money = 10;
+  playerInfo.health = 100;
+  playerInfo.attack = randomNumber(8, 15);
+  playerInfo.money = 10;
 
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
@@ -206,27 +176,25 @@ var shop = function () {
   switch (shopOptionPrompt) {
     case "REFILL":
     case "refill":
-      playerInfo.refillHealth();
-      // if (playerInfo.money >= 7) {
-      //   window.alert("Refilling player's health by 20 for 7 dollars.");
-      //   // increase health and decrease money
-      //   playerInfo.health = playerInfo.health + 20;
-      //   playerInfo.money = playerInfo.money - 7;
-      // } else {
-      //   window.alert("You don't have enough money!");
-      // }
+      if (playerInfo.money >= 7) {
+        window.alert("Refilling player's health by 20 for 7 dollars.");
+        // increase health and decrease money
+        playerInfo.health = playerInfo.health + 20;
+        playerInfo.money = playerInfo.money - 7;
+      } else {
+        window.alert("You don't have enough money!");
+      }
       break;
     case "UPGRADE":
     case "upgrade":
-      playerInfo.upgradeAttack();
-      // if (playerInfo.money >= 7) {
-      //   window.alert("Upgrading player's attack by 6 for 7 dollars.");
-      //   // increase attack and decrease money
-      //   playerInfo.attack = playerInfo.attack + 6;
-      //   playerInfo.money = playerInfo.money - 7;
-      // } else {
-      //   window.alert("You don't have enough money!");
-      // }
+      if (playerInfo.money >= 7) {
+        window.alert("Upgrading player's attack by 6 for 7 dollars.");
+        // increase attack and decrease money
+        playerInfo.attack = playerInfo.attack + 6;
+        playerInfo.money = playerInfo.money - 7;
+      } else {
+        window.alert("You don't have enough money!");
+      }
       break;
     case "LEAVE":
     case "leave":
@@ -239,5 +207,13 @@ var shop = function () {
       break;
   }
 };
+
+function randomNumber(min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value;
+}
+
+// console.log(randomNumber());
 
 startGame();
