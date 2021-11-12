@@ -70,7 +70,7 @@ var fightOrSkip = function () {
     //   enemy.attack +
     //   "\n\n" +
     "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose",
-    "Fight"
+    "fight"
   );
 
   // Enter the conditional recursive function call here!
@@ -246,7 +246,7 @@ var endGame = function () {
 
 var shop = function () {
   var shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
   );
   switch (parseInt(shopOptionPrompt)) {
     case 1:

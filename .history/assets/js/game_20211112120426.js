@@ -56,6 +56,14 @@ var enemyInfo = [
     attack: randomNumber(16, 20),
   },
 ];
+// var enemyHealth = randomNumber(40, 60);
+// var enemy.attack = randomNumber(5, 15);
+
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//      * Fight all enemy-robots
+//      * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
 
 var fightOrSkip = function () {
   // ask player if they'd like to fight or run
@@ -69,8 +77,7 @@ var fightOrSkip = function () {
     //   "Attack: " +
     //   enemy.attack +
     //   "\n\n" +
-    "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose",
-    "Fight"
+    "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose"
   );
 
   // Enter the conditional recursive function call here!
@@ -246,10 +253,11 @@ var endGame = function () {
 
 var shop = function () {
   var shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
   );
-  switch (parseInt(shopOptionPrompt)) {
-    case 1:
+  switch (shopOptionPrompt) {
+    case "REFILL":
+    case "refill":
       playerInfo.refillHealth();
       // if (playerInfo.money >= 7) {
       //   window.alert("Refilling player's health by 20 for 7 dollars.");
@@ -260,7 +268,8 @@ var shop = function () {
       //   window.alert("You don't have enough money!");
       // }
       break;
-    case 2:
+    case "UPGRADE":
+    case "upgrade":
       playerInfo.upgradeAttack();
       // if (playerInfo.money >= 7) {
       //   window.alert("Upgrading player's attack by 6 for 7 dollars.");
@@ -271,7 +280,8 @@ var shop = function () {
       //   window.alert("You don't have enough money!");
       // }
       break;
-    case 3:
+    case "LEAVE":
+    case "leave":
       window.alert("Leaving the store.");
       break;
     default:
