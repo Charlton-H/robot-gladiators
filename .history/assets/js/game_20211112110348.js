@@ -81,14 +81,9 @@ var fightOrSkip = function () {
   );
 
   // Enter the conditional recursive function call here!
-  if (promptFight === "" || promptFight === null) {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return fightOrSkip();
-  }
 
-  promptFight = promptFight.toLocaleLowerCase();
   // if player choses to skip
-  if (promptFight === "skip") {
+  if (promptFight === "skip" || promptFight === "SKIP") {
     // confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -99,19 +94,14 @@ var fightOrSkip = function () {
       );
       // subtract money from playerMoney for skipping
       playerInfo.money = playerInfo.money - 10;
-      return true;
+      shop();
     }
   }
-  return false;
 };
 
 var fight = function (enemy) {
   // repeat and execute as long as the enemy-robot is alive
   while (playerInfo.health > 0 && enemy.health > 0) {
-    if (fightOrSkip()) {
-      // if true, leave fight by breaking loop
-      break;
-    }
     // ask player if they'd like to fight or run
     // var promptFight = window.prompt(
     //   "Enemy: " +

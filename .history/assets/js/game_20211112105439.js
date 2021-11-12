@@ -65,7 +65,7 @@ var enemyInfo = [
 //      * Defeat each enemy-robot
 // "LOSE" - Player robot's health is zero or less
 
-var fightOrSkip = function () {
+var fightOrSkip = function() {
   // ask player if they'd like to fight or run
   var promptFight = window.prompt(
     "Enemy: " +
@@ -81,14 +81,13 @@ var fightOrSkip = function () {
   );
 
   // Enter the conditional recursive function call here!
-  if (promptFight === "" || promptFight === null) {
+  if (promptFight ==="" || promptFight === null) {
     window.alert("You need to provide a valid answer! Please try again.");
     return fightOrSkip();
   }
 
-  promptFight = promptFight.toLocaleLowerCase();
-  // if player choses to skip
-  if (promptFight === "skip") {
+// if player choses to skip
+  if (promptFight === "skip" || promptFight === "SKIP") {
     // confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -98,35 +97,18 @@ var fightOrSkip = function () {
         playerInfo.name + " has decided to skip this fight. Goodbye!"
       );
       // subtract money from playerMoney for skipping
-      playerInfo.money = playerInfo.money - 10;
-      return true;
+      playerInfo.money = playerInfo.money - 10; 
+      shop();
     }
   }
-  return false;
-};
+}
 
 var fight = function (enemy) {
   // repeat and execute as long as the enemy-robot is alive
   while (playerInfo.health > 0 && enemy.health > 0) {
-    if (fightOrSkip()) {
-      // if true, leave fight by breaking loop
-      break;
-    }
-    // ask player if they'd like to fight or run
-    // var promptFight = window.prompt(
-    //   "Enemy: " +
-    //     enemy.name +
-    //     "\n" +
-    //     "Health: " +
-    //     enemy.health +
-    //     "\n" +
-    //     "Attack: " +
-    //     enemy.attack +
-    //     "\n\n" +
-    //     "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose"
-    // );
+    fightOrSkip();
 
-    // // if player choses to skip
+    // if player choses to skip
     // if (promptFight === "skip" || promptFight === "SKIP") {
     //   // confirm player wants to skip
     //   var confirmSkip = window.confirm("Are you sure you'd like to quit?");
@@ -142,7 +124,7 @@ var fight = function (enemy) {
     //     console.log("playerMoney", playerInfo.money);
     //     break;
     //   }
-    // }
+    }
     // } else if (promptFight === "fight" || promptFight === "FIGHT") {
     //Subtract the value of `playerAttack` from the value of `enemy.health` and use that result to update the value in the `enemyHealth` variable
     // generate random damage value based on player's attack power
@@ -194,7 +176,6 @@ var fight = function (enemy) {
       );
     }
   }
-};
 
 var startGame = function () {
   // reset player stats

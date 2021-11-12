@@ -68,16 +68,16 @@ var enemyInfo = [
 var fightOrSkip = function () {
   // ask player if they'd like to fight or run
   var promptFight = window.prompt(
-    "Enemy: " +
-      enemy.name +
-      "\n" +
-      "Health: " +
-      enemy.health +
-      "\n" +
-      "Attack: " +
-      enemy.attack +
-      "\n\n" +
-      "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose"
+    // "Enemy: " +
+    //   enemy.name +
+    //   "\n" +
+    //   "Health: " +
+    //   enemy.health +
+    //   "\n" +
+    //   "Attack: " +
+    //   enemy.attack +
+    //   "\n\n" +
+    "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' OR 'SKIP' to choose"
   );
 
   // Enter the conditional recursive function call here!
