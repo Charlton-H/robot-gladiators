@@ -104,7 +104,6 @@ var startGame = function () {
       var pickedEnemyName = enemyNames[i];
 
       enemyHealth = randomNumber(40, 60);
-      enemyAttack = randomNumber(5, 15);
 
       //debugger;
 
@@ -114,11 +113,8 @@ var startGame = function () {
       break;
     }
     if (playerHealth > 0 && i < enemyNames.length - 1) {
-      playerMoney = playerMoney + 3;
       var storeConfirm = window.confirm(
-        "The fight is over, visit the store before the next round? You have " +
-          playerMoney +
-          " available funds to use."
+        "The fight is over, visit the store before the next round?"
       );
       if (storeConfirm) {
         shop();

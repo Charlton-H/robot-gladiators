@@ -1,11 +1,11 @@
 var playerName = window.prompt("What is your robot's name?");
 // var playerHealth = randomNumber(50, 100);
-// var playerAttack = randomNumber(5, 10);
+// var playerAttack = randomNumber(5, 20);
 // var playerMoney = 10;
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 // var enemyHealth = randomNumber(40, 60);
-var enemyAttack = randomNumber(5, 15);
+// var enemyAttack = randomNumber(5, 15);
 
 // Game States
 // "WIN" - Player robot has defeated all enemy-robots
@@ -90,7 +90,7 @@ var fight = function (enemyName) {
 var startGame = function () {
   // reset player stats
   playerHealth = 100;
-  playerAttack = randomNumber(8, 15);
+  playerAttack = 10;
   playerMoney = 10;
 
   for (var i = 0; i < enemyNames.length; i++) {
@@ -104,7 +104,6 @@ var startGame = function () {
       var pickedEnemyName = enemyNames[i];
 
       enemyHealth = randomNumber(40, 60);
-      enemyAttack = randomNumber(5, 15);
 
       //debugger;
 
@@ -114,11 +113,8 @@ var startGame = function () {
       break;
     }
     if (playerHealth > 0 && i < enemyNames.length - 1) {
-      playerMoney = playerMoney + 3;
       var storeConfirm = window.confirm(
-        "The fight is over, visit the store before the next round? You have " +
-          playerMoney +
-          " available funds to use."
+        "The fight is over, visit the store before the next round?"
       );
       if (storeConfirm) {
         shop();

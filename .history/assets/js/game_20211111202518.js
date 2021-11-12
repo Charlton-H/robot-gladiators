@@ -5,7 +5,7 @@ var playerName = window.prompt("What is your robot's name?");
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 // var enemyHealth = randomNumber(40, 60);
-var enemyAttack = randomNumber(5, 15);
+// var enemyAttack = randomNumber(5, 15);
 
 // Game States
 // "WIN" - Player robot has defeated all enemy-robots
