@@ -9,7 +9,6 @@ var getPlayerName = function () {
   while (name === "" || name === null) {
     name = prompt("What is your robot's name?");
   }
-  return name;
 };
 
 var playerInfo = {
